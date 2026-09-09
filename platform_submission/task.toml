@@ -1,0 +1,38 @@
+schema_version = "1.1"
+artifacts = ["/logs/artifacts/model.patch"]
+
+[task]
+name = "afterquery/production-day-pack"
+
+[metadata]
+task_id = "production-day-pack"
+display_title = "Production Day Pack"
+display_description = "Build a persisted, versioned operational day-pack snapshot for one production and calendar date, assembling linked catalog records and exposing it through API and CLI."
+category = "feature_request"
+language = "python"
+repository_url = "platform://gold/repos/7klp9iCDRvv1xEKNVXLN"
+base_commit_hash = "e1f02d662e87a96e4a8ec296efa095f763d7dfbb"
+
+[agent]
+timeout_sec = 5400
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 1800
+
+[verifier.environment]
+build_timeout_sec = 1800
+cpus = 2
+memory_mb = 8192
+storage_mb = 20480
+allow_internet = false
+
+[environment]
+build_timeout_sec = 1800
+docker_image = "us-docker.pkg.dev/afterquery-compute/compute-images/gold-repo-lumenstage-7klp9i:v1"
+os = "linux"
+cpus = 2
+memory_mb = 8192
+storage_mb = 20480
+gpus = 0
+allow_internet = false
